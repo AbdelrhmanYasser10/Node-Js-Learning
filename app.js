@@ -1,11 +1,17 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+const port = 3000;
+const rootLink = `http://localhost:${port}`;
+app.set('view engine', 'ejs');
+app.use(express.static("public"));
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+app.get("/", (req, res) => {
+    res.render("index");
+});
+
+
 
 app.listen(port, () => {
-    console.log(`Example app listening on port http://localhost:${port}`)
-})
+    console.log(`
+Example app listening on port ${rootLink}`);
+});
